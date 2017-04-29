@@ -1,6 +1,6 @@
 {
   "events": {
-    "restart": "./node_modules/.bin/webpack --config webpack.config.js -p && ./node_modules/.bin/javascript-obfuscator build/bundle.js --compact true -o ./static/dist.js"
+    "restart": "npm run build"
   },
   "ignore" : [
     "dist.js",
