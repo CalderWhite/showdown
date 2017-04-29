@@ -1,0 +1,20 @@
+#gameFrame{
+    position:relative;
+    margin-top: 10px;
+    padding: 0px;
+}
+#game{
+    border:5px solid black;
+    border-radius: 10px;
+    /* aspect ratio styles */
+    padding: 0;
+    margin: 0px;
+    width:100%;
+    background:red;
+    display: inline-block;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}

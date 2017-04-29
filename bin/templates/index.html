@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Test</title>
+        <!-- Third Party Code !-->
+        <script src="/js/jquery-3.2.1.min.js"></script>
+        <!-- Bootstrap !-->
+        <script type="text/javascript" src="/js/bootstrap.min.js"></script>
+        <link rel="stylesheet" href="/css/bootstrap.min.css" type="text/css" />
+        <!-- socket.io !-->
+        <script src="/js/socket.io.min.js"></script>
+        <!-- First Party Code !-->
+        <link rel="stylesheet" href="/css/main.css" type="text/css" />
+        <script id="remove">
+            {{ .Dist_code }}
+        </script>
+    </head>
+    <body>
+        <div class="col-md-3"></div>
+        <div id="gameFrame" class="col-md-6">
+            <canvas id="game"></canvas>
+        </div>
+    </body>
+</html>
