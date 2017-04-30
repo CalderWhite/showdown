@@ -1,7 +1,8 @@
 // comments to get rid of c9's pissy ace helper
-/* global $ */
+/* global $,io,btoa */
 // security code
 document.head.removeChild(document.getElementById("remove"));
+var socket = io("/",{query:"auth=" + encodeURIComponent(btoa("74a8ba25526f380b68a86a6796062073831979879e29c1a2dc196ad92ade560c"))});
 // include other scripts, since this is the entry point
 var main = require('./main.js');
 // global code
@@ -27,8 +28,6 @@ var engine = {
             }
         },
         check_keys : function(){
-            if(engine.player.activeKeys[kin.LEFT]){
-            }
         }
     },
     init : function(){

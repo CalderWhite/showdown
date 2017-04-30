@@ -16,14 +16,20 @@ type mainPage struct {
 }
 
 func get_code() (string, error) {
-	b, err := ioutil.ReadFile("static/dist.js") // just pass the file name
+	b, err := ioutil.ReadFile("dist/dist.js") // just pass the file name
 	if err != nil {
 		return "", err
 	}
 	return string(b), nil
 }
 
+//https://firebase.google.com/docs/reference/rest/database/
 func onConnection(so socketio.Socket) {
+	if so.Request().FormValue("auth") != "NzRhOGJhMjU1MjZmMzgwYjY4YTg2YTY3OTYwNjIwNzM4MzE5Nzk4NzllMjljMWEyZGMxOTZhZDkyYWRlNTYwYw==" {
+		so.Emit("disconnection")
+		log.Println(so.Request().FormValue("auth"))
+		return
+	}
 	log.Println("on connection")
 	so.Join("chat")
 	so.On("message", func(msg string) {
@@ -40,11 +46,11 @@ func main() {
 	m.Get("/", func() (int, string) {
 		code, err := get_code()
 		if err != nil {
-			return 500, "Internal server error."
+			return 500, "Internal server error. Error getting code."
 		}
 		page, err := ioutil.ReadFile("templates/index.html")
 		if err != nil {
-			return 500, "Internal server error."
+			return 500, "Internal server error. Error reading index file."
 		}
 		p, err := template.New("foo").Parse(string(page))
 		if err != nil {
