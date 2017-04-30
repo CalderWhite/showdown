@@ -1,7 +1,7 @@
 var webpack = require("webpack");
 var path = require("path")
 module.exports = {
-	entry: "./src/main.js",
+	entry: "./src/game.js",
 	output: {
 		path: __dirname + "/build",
 		filename: "bundle.js",

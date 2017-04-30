@@ -1,5 +1,5 @@
 {
-  "main": "main.js",
+  "main": "game.js",
   "src": "./src",
   "scripts": {
     "build": "webpack --config webpack.config.js -p && javascript-obfuscator build/bundle.js --compact true -o ./dist/dist.js"

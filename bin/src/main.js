@@ -1,2 +1,4 @@
-document.head.removeChild(document.getElementById("remove"));
-module.exports = {};
+/* global $*/
+$(document).ready(function(){
+    $('#devlogs').css("height",(window.innerHeight*0.9));
+})

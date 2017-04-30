@@ -16,7 +16,7 @@ type mainPage struct {
 }
 
 func get_code() (string, error) {
-	b, err := ioutil.ReadFile("dist/dist.js") // just pass the file name
+	b, err := ioutil.ReadFile("static/dist.js") // just pass the file name
 	if err != nil {
 		return "", err
 	}
@@ -40,13 +40,13 @@ func main() {
 	m.Get("/", func() (int, string) {
 		code, err := get_code()
 		if err != nil {
-			return 500, "Internal server error getting code."
+			return 500, "Internal server error."
 		}
 		page, err := ioutil.ReadFile("templates/index.html")
 		if err != nil {
-			return 500, "Internal server error reading template"
+			return 500, "Internal server error."
 		}
-		p, err := template.New("derp").Parse(string(page))
+		p, err := template.New("foo").Parse(string(page))
 		if err != nil {
 			return 500, "Internal server error: couldn't create template"
 		}
